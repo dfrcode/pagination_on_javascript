@@ -217,7 +217,9 @@ var _json = require("./json");
 
 var container = document.querySelector('.container'),
     pages = document.querySelectorAll('.number_page');
+var usersContainer = document.querySelector('.users');
 var countUsers = 3;
+starts(countUsers, _json.users);
 pages.forEach(function (page) {
   page.addEventListener('click', function () {
     var pageNumber = +page.innerHTML;
@@ -228,6 +230,7 @@ pages.forEach(function (page) {
 
     console.log(listUsers);
     removeUser();
+    page.classList.add('active');
 
     for (var i = start; i < end; i++) {
       var _users$i = _json.users[i],
@@ -238,10 +241,30 @@ pages.forEach(function (page) {
     }
   });
 });
-var usersContainer = document.querySelector('.users');
+
+function starts(countUsers, users) {
+  var listUsers = users.slice(0, countUsers);
+
+  for (var i = 0; i < countUsers; i++) {
+    var _users$i2 = users[i],
+        name = _users$i2.name,
+        surname = _users$i2.surname,
+        age = _users$i2.age;
+    createUser(name, surname, age);
+  }
+
+  pages.forEach(function (page, idx) {
+    if (idx === 0) {
+      page.classList.add('active');
+    }
+  });
+}
 
 function removeUser() {
   usersContainer.textContent = '';
+  pages.forEach(function (page) {
+    page.classList.remove('active');
+  });
 }
 
 function createUser(nameText, surnameText, ageCount) {
@@ -288,7 +311,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "46247" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36059" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

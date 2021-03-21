@@ -86,3 +86,9 @@ body {
     color: #000000;
     border: 1px solid #000000;
 }
+
+.active {
+    background-color: #dddddd;
+    color: #000000;
+    border: 1px solid #000000;
+}
