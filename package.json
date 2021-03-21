@@ -2,10 +2,10 @@
   "name": "pagination",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "start": "cross-env NODE_ENV=development parcel index.html --open",
-    "build": "cross-env NODE_ENV=production parcel build index.html --public-url",
+    "build": "cross-env NODE_ENV=production parcel build index.html --public-url https://dfrcode.github.io/pagination_on_javascript/",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d dist"
   },
