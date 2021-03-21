@@ -37,12 +37,6 @@ body {
     border: 1px solid #dddddd;
 }
 
-.name, .surname, .age {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .name {
     width: 130px;
     height: 100%;
@@ -86,3 +80,4 @@ body {
     color: #000000;
     border: 1px solid #000000;
 }
+/*# sourceMappingURL=index.d10797b7.css.map */
