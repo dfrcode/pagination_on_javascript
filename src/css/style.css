@@ -1,94 +1,96 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    height: 100vh;
+  height: 100vh;
 }
 
 .container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 100%;
-    height: 100%;
-    padding: 30px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
 }
 
 .users {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction: column;
-    width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
 }
 
 .user {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 300px;
-    height: 30px;
-    margin: 5px;
-    border: 1px solid #dddddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 30px;
+  margin: 5px;
+  border: 1px solid #dddddd;
 }
 
-.name, .surname, .age {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.name,
+.surname,
+.age {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .name {
-    width: 130px;
-    height: 100%;
+  width: 130px;
+  height: 100%;
 }
 
 .surname {
-    width: 130px;
-    height: 100%;
-    border-left: 1px solid #dddddd;
-    border-right: 1px solid #dddddd;
+  width: 130px;
+  height: 100%;
+  border-left: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
 }
 
 .age {
-    width: calc(300px - 260px);
-    height: 100%;
+  width: calc(300px - 260px);
+  height: 100%;
 }
 
 .pagination {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: 100%;
-    padding: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  padding: 5px;
 }
 
 .number_page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #dddddd;
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
-    border: 1px solid #dddddd;
-    border-radius: 50%;
-    margin-right: 5px;
-    transition: color .2s linear, border .2s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #dddddd;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #dddddd;
+  border-radius: 50%;
+  margin-right: 5px;
+  transition: color 0.2s linear, border 0.2s linear;
 }
 
 .number_page:hover {
-    color: #000000;
-    border: 1px solid #000000;
+  color: #000000;
+  border: 1px solid #000000;
 }
 
 .active {
-    background-color: #dddddd;
-    color: #000000;
-    border: 1px solid #000000;
+  background-color: #dddddd;
+  color: #000000;
+  border: 1px solid #000000;
 }
