@@ -37,6 +37,12 @@ body {
     border: 1px solid #dddddd;
 }
 
+.name, .surname, .age {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .name {
     width: 130px;
     height: 100%;
@@ -77,6 +83,12 @@ body {
 }
 
 .number_page:hover {
+    color: #000000;
+    border: 1px solid #000000;
+}
+
+.active {
+    background-color: #dddddd;
     color: #000000;
     border: 1px solid #000000;
 }

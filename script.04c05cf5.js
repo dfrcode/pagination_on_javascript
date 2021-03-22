@@ -215,13 +215,16 @@ require("../css/style.css");
 
 var _json = require("./json");
 
-var container = document.querySelector('.container'),
-    pages = document.querySelectorAll('.number_page');
-var usersContainer = document.querySelector('.users');
 var countUsers = 3;
+var container = document.querySelector(".container"),
+    pagination = document.querySelector(".pagination");
+var usersContainer = document.querySelector(".users");
+var pages = [];
+var len = _json.users.length;
+createPagination(countUsers);
 starts(countUsers, _json.users);
 pages.forEach(function (page) {
-  page.addEventListener('click', function () {
+  page.addEventListener("click", function () {
     var pageNumber = +page.innerHTML;
     var start = (pageNumber - 1) * countUsers;
     var end = start + countUsers;
@@ -230,7 +233,7 @@ pages.forEach(function (page) {
 
     console.log(listUsers);
     removeUser();
-    page.classList.add('active');
+    page.classList.add("active");
 
     for (var i = start; i < end; i++) {
       var _users$i = _json.users[i],
@@ -241,6 +244,19 @@ pages.forEach(function (page) {
     }
   });
 });
+
+function createPagination(countUsers) {
+  for (var i = 0; i < len; i++) {
+    if (i % countUsers === 0) {
+      var page = createEl("div", "number_page", pagination);
+      pages.push(page);
+    }
+
+    pages.forEach(function (page, idx) {
+      page.textContent = idx + 1;
+    });
+  }
+}
 
 function starts(countUsers, users) {
   var listUsers = users.slice(0, countUsers);
@@ -255,23 +271,23 @@ function starts(countUsers, users) {
 
   pages.forEach(function (page, idx) {
     if (idx === 0) {
-      page.classList.add('active');
+      page.classList.add("active");
     }
   });
 }
 
 function removeUser() {
-  usersContainer.textContent = '';
+  usersContainer.textContent = "";
   pages.forEach(function (page) {
-    page.classList.remove('active');
+    page.classList.remove("active");
   });
 }
 
 function createUser(nameText, surnameText, ageCount) {
-  var user = createEl('div', 'user', usersContainer),
-      name = createEl('div', 'name', user),
-      surname = createEl('div', 'surname', user),
-      age = createEl('div', 'age', user);
+  var user = createEl("div", "user", usersContainer),
+      name = createEl("div", "name", user),
+      surname = createEl("div", "surname", user),
+      age = createEl("div", "age", user);
   name.textContent = nameText;
   surname.textContent = surnameText;
   age.textContent = ageCount;
@@ -311,7 +327,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36059" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42847" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
