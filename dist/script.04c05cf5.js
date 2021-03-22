@@ -208,44 +208,29 @@ for (var i = 0; i < 30; i++) {
 }
 
 console.log(users);
-},{}],"src/js/script.js":[function(require,module,exports) {
+},{}],"src/js/functions.js":[function(require,module,exports) {
 "use strict";
 
-require("../css/style.css");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.createPagination = createPagination;
+exports.starts = starts;
+exports.removeUser = removeUser;
+exports.createUser = createUser;
+exports.createEl = createEl;
+exports.pages = void 0;
 
 var _json = require("./json");
 
-var countUsers = 3;
-var container = document.querySelector(".container"),
-    pagination = document.querySelector(".pagination");
-var usersContainer = document.querySelector(".users");
+var pagination = document.querySelector(".pagination"),
+    usersContainer = document.querySelector(".users");
 var pages = [];
-var len = _json.users.length;
-createPagination(countUsers);
-starts(countUsers, _json.users);
-pages.forEach(function (page) {
-  page.addEventListener("click", function () {
-    var pageNumber = +page.innerHTML;
-    var start = (pageNumber - 1) * countUsers;
-    var end = start + countUsers;
-
-    var listUsers = _json.users.slice(start, end);
-
-    console.log(listUsers);
-    removeUser();
-    page.classList.add("active");
-
-    for (var i = start; i < end; i++) {
-      var _users$i = _json.users[i],
-          name = _users$i.name,
-          surname = _users$i.surname,
-          age = _users$i.age;
-      createUser(name, surname, age);
-    }
-  });
-});
+exports.pages = pages;
 
 function createPagination(countUsers) {
+  var len = _json.users.length;
+
   for (var i = 0; i < len; i++) {
     if (i % countUsers === 0) {
       var page = createEl("div", "number_page", pagination);
@@ -262,10 +247,10 @@ function starts(countUsers, users) {
   var listUsers = users.slice(0, countUsers);
 
   for (var i = 0; i < countUsers; i++) {
-    var _users$i2 = users[i],
-        name = _users$i2.name,
-        surname = _users$i2.surname,
-        age = _users$i2.age;
+    var _users$i = users[i],
+        name = _users$i.name,
+        surname = _users$i.surname,
+        age = _users$i.age;
     createUser(name, surname, age);
   }
 
@@ -299,7 +284,41 @@ function createEl(element, className, parent) {
   parent.appendChild(el);
   return el;
 }
-},{"../css/style.css":"src/css/style.css","./json":"src/js/json.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./json":"src/js/json.js"}],"src/js/script.js":[function(require,module,exports) {
+"use strict";
+
+require("../css/style.css");
+
+var _json = require("./json");
+
+var _functions = require("./functions");
+
+var countUsers = 3;
+(0, _functions.createPagination)(countUsers);
+(0, _functions.starts)(countUsers, _json.users);
+
+_functions.pages.forEach(function (page) {
+  page.addEventListener("click", function () {
+    var pageNumber = +page.innerHTML;
+    var start = (pageNumber - 1) * countUsers;
+    var end = start + countUsers;
+
+    var listUsers = _json.users.slice(start, end);
+
+    console.log(listUsers);
+    (0, _functions.removeUser)();
+    page.classList.add("active");
+
+    for (var i = start; i < end; i++) {
+      var _users$i = _json.users[i],
+          name = _users$i.name,
+          surname = _users$i.surname,
+          age = _users$i.age;
+      (0, _functions.createUser)(name, surname, age);
+    }
+  });
+});
+},{"../css/style.css":"src/css/style.css","./json":"src/js/json.js","./functions":"src/js/functions.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -327,7 +346,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42847" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "41483" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
