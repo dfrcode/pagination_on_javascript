@@ -4,7 +4,7 @@ import { users } from "./json";
 
 import { createPagination, starts, removeUser, createUser, pages } from "./functions";
 
-const countUsers = 7;
+const countUsers = 10;
 
 createPagination(countUsers);
 
