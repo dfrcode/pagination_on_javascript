@@ -293,7 +293,7 @@ var _json = require("./json");
 
 var _functions = require("./functions");
 
-var countUsers = 3;
+var countUsers = 10;
 (0, _functions.createPagination)(countUsers);
 (0, _functions.starts)(countUsers, _json.users);
 
@@ -346,7 +346,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "41483" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "38713" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
